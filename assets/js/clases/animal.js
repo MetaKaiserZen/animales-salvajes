@@ -33,9 +33,9 @@ class Animal
             return _sonido;
         }
 
-        this.setComentarios = (comentarios) =>
+        this.setComentarios = (nuevosComentarios) =>
         {
-            _comentarios = comentarios;
+            _comentarios = nuevosComentarios;
         }
     }
 
@@ -68,9 +68,9 @@ class Animal
 
     // Setter
 
-    set comentarios(comentarios)
+    set comentarios(nuevosComentarios)
     {
-        this.setComentarios(comentarios);
+        this.setComentarios(nuevosComentarios);
     }
 }
 
