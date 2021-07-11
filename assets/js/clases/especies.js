@@ -5,13 +5,18 @@ class Leon extends Animal
     constructor(nombre, edad, img, comentarios, sonido)
     {
         super(nombre, edad, img, comentarios, sonido);
+
+        let _sonido = 'assets/sounds/Rugido.mp3';
+
+        this.getSonido = () =>
+        {
+            return _sonido;
+        }
     }
 
     rugir()
     {
-        let sonido = this.getSonido();
-
-        //
+        return this.getSonido();
     }
 }
 
@@ -20,13 +25,18 @@ class Lobo extends Animal
     constructor(nombre, edad, img, comentarios, sonido)
     {
         super(nombre, edad, img, comentarios, sonido);
+
+        let _sonido = 'assets/sounds/Aullido.mp3';
+
+        this.getSonido = () =>
+        {
+            return _sonido;
+        }
     }
 
     aullar()
     {
-        let sonido = this.getSonido();
-
-        //
+        return this.getSonido();
     }
 }
 
@@ -35,13 +45,18 @@ class Oso extends Animal
     constructor(nombre, edad, img, comentarios, sonido)
     {
         super(nombre, edad, img, comentarios, sonido);
+
+        let _sonido = 'assets/sounds/Gruñido.mp3';
+
+        this.getSonido = () =>
+        {
+            return _sonido;
+        }
     }
 
     gruñir()
     {
-        let sonido = this.getSonido();
-
-        //
+        return this.getSonido();
     }
 }
 
@@ -50,13 +65,18 @@ class Serpiente extends Animal
     constructor(nombre, edad, img, comentarios, sonido)
     {
         super(nombre, edad, img, comentarios, sonido);
+
+        let _sonido = 'assets/sounds/Siseo.mp3';
+
+        this.getSonido = () =>
+        {
+            return _sonido;
+        }
     }
 
     sisear()
     {
-        let sonido = this.getSonido();
-
-        //
+        return this.getSonido();
     }
 }
 
@@ -65,13 +85,18 @@ class Aguila extends Animal
     constructor(nombre, edad, img, comentarios, sonido)
     {
         super(nombre, edad, img, comentarios, sonido);
+
+        let _sonido = 'assets/sounds/Chillido.mp3';
+
+        this.getSonido = () =>
+        {
+            return _sonido;
+        }
     }
 
     chillar()
     {
-        let sonido = this.getSonido();
-
-        //
+        return this.getSonido();
     }
 }
 

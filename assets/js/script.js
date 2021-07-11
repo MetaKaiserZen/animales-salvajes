@@ -34,7 +34,7 @@ document.getElementById('btnRegistrar').addEventListener('click', () =>
     let imagenSrcBg = previewElement.style.backgroundImage;
     let imgSrc = imagenSrcBg.slice(5, imagenSrcBg.length - 2);
     let comentarios = document.getElementById('comentarios');
-    let sonido = '';
+    let sonido = ''
 
     // Instancia de la clase Animal
 
@@ -43,19 +43,29 @@ document.getElementById('btnRegistrar').addEventListener('click', () =>
     switch (nombre.value)
     {
         case 'Leon':
-            nuevoAnimal = new Leon(nombre.value, edad.value, imgSrc, comentarios.value, sonido.value);
+            sonido = new Leon;
+
+            nuevoAnimal = new Leon(nombre.value, edad.value, imgSrc, comentarios.value, sonido.rugir());
             break;
         case 'Lobo':
-            nuevoAnimal = new Lobo(nombre.value, edad.value, imgSrc, comentarios.value, sonido.value);
+            sonido = new Lobo;
+
+            nuevoAnimal = new Lobo(nombre.value, edad.value, imgSrc, comentarios.value, sonido.aullar());
             break;
         case 'Oso':
-            nuevoAnimal = new Oso(nombre.value, edad.value, imgSrc, comentarios.value, sonido.value);
+            sonido = new Oso;
+
+            nuevoAnimal = new Oso(nombre.value, edad.value, imgSrc, comentarios.value, sonido.gruñir());
             break;
         case 'Serpiente':
-            nuevoAnimal = new Serpiente(nombre.value, edad.value, imgSrc, comentarios.value, sonido.value);
+            sonido = new Serpiente;
+
+            nuevoAnimal = new Serpiente(nombre.value, edad.value, imgSrc, comentarios.value, sonido.sisear());
             break;
         case 'Aguila':
-            nuevoAnimal = new Aguila(nombre.value, edad.value, imgSrc, comentarios.value, sonido.value);
+            sonido = new Aguila;
+
+            nuevoAnimal = new Aguila(nombre.value, edad.value, imgSrc, comentarios.value, sonido.chillar());
             break;
     }
 
@@ -96,7 +106,7 @@ const reloadTable = () =>
                 <div class="card" style="background-color: #343a40; height: 200px;">
                     <img src="${a.getImg()}" class="card-img-top" id="animal${count}" style="height: 150px;">
                     <div class="card-body d-flex align-items-center bg-secondary">
-                        <button type="button" class="btn btn-secondary"><img src="./assets/imgs/audio.svg" style="width: 50%"></button>
+                        <button type="button" class="btn btn-secondary" id="sonido${count}" value="${a.getSonido()}"><img src="./assets/imgs/audio.svg" style="width: 50%"></button>
                     </div>
                 </div>
             </div>`;
@@ -110,15 +120,17 @@ const reloadTable = () =>
 
     let imagen = [];
 
-    // Ciclo repetitivo que permite mostrar los datos de una tarjeta seleccionada
+    // Ciclo repetitivo que permite mostrar los datos de un animal seleccionado
 
     for (let i = 0; i < count; i++)
     {
+        // Información dentro de la tarjeta
+
         imagen[i] = document.getElementById(`animal${i}`);
 
         imagen[i].addEventListener('click', async() =>
         {
-            let datosTemplate = document.getElementById('Datos');
+            const datosTemplate = document.getElementById('Datos');
 
             datosTemplate.innerHTML = '';
 
@@ -129,6 +141,26 @@ const reloadTable = () =>
                 <p class="text-center text-white my-4">${animales[i].getComentarios()}</p>`;
 
             $('#exampleModal').modal('toggle');
+        });
+
+        // En la siguiente variable se guardará el sonido del animal seleccionado
+
+        let sonido = '';
+
+        // Sonido del animal al ser presionado el botón de audio
+
+        sonido = document.getElementById(`sonido${i}`);
+
+        sonido.addEventListener('click', async() =>
+        {
+            const audioTemplate = document.getElementById('audio');
+
+            audioTemplate.innerHTML = '';
+
+            audioTemplate.innerHTML =
+                `<audio controls autoplay id="player" class="d-none">
+                <source src="${sonido.value}" type="audio/mpeg">
+                </audio>`;
         });
     }
 }

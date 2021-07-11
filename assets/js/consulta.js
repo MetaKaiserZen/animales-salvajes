@@ -1,6 +1,6 @@
 let animales = (() =>
 {
-    const url = 'http://localhost:81/animales-salvajes/animales.json';
+    const url = '/animales-salvajes/animales.json';
 
     const getDatos = async () =>
     {
